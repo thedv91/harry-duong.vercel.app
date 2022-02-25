@@ -1,5 +1,5 @@
 import Section from '@/components/Section';
-import Skill from '@/components/sections/Skill';
+import Skill from './SkillItem';
 import { Ansible } from '@/components/skills/ansible';
 import { Apollo } from '@/components/skills/apollo';
 import { Aws } from '@/components/skills/aws';
@@ -32,7 +32,7 @@ import { Yarn } from '@/components/skills/yarn';
 const SkillSet: React.VFC = () => {
   return (
     <Section id="skill" intro="check out my" title="skills">
-      <article className="rounded-3xl bg-white p-12 dark:bg-slate-800">
+      <article className="rounded-3xl dark:bg-slate-800 md:bg-white md:p-12">
         <h2 className="pb-4">Development</h2>
         <div className="grid grid-cols-96px gap-4">
           <Skill name="Typescript">

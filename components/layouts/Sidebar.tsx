@@ -46,7 +46,7 @@ const Sidebar = () => {
             <li key={id}>
               <a
                 className="inline-block px-4 py-2"
-                href="#info"
+                href={`#${id}`}
                 role="button"
                 aria-hidden={true}
                 onClick={(e) => {

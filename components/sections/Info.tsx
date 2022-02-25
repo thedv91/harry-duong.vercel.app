@@ -24,8 +24,8 @@ const Info: React.VFC = () => {
             <span className="text-primary dark:text-sky-400">Harry</span> Duong
           </h1>
           <p>
-            A <span className="font-semibold text-primary dark:text-sky-400">Technical Leader</span> passionate about
-            creating interactive applications and experiences on the web.
+            A <span className="font-semibold text-primary dark:text-sky-400">Full-Stack developer</span> passionate
+            about creating interactive applications and experiences on the web.
           </p>
           <div className="mt-8 flex items-center">
             <button
@@ -49,7 +49,7 @@ const Info: React.VFC = () => {
               <li className="mx-4">
                 <a
                   className="flex h-10 w-10 items-center justify-center rounded border-none bg-white p-2 text-primary shadow-md transition-all hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-primary dark:border-gray-800 dark:bg-slate-700 dark:text-white dark:hover:border-gray-700 dark:hover:shadow-lg"
-                  href="https://github.com/thedv91"
+                  href="https://www.linkedin.com/in/harry-duong"
                   target="_blank"
                   rel="noreferrer"
                   title="LinkedIn"
@@ -60,7 +60,7 @@ const Info: React.VFC = () => {
               <li>
                 <a
                   className="flex h-10 w-10 items-center justify-center rounded border-none bg-white p-2 text-primary shadow-md transition-all hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-primary dark:border-gray-800 dark:bg-slate-700 dark:text-white dark:hover:border-gray-700 dark:hover:shadow-lg"
-                  href="https://github.com/thedv91"
+                  href="https://twitter.com/nopbongdem"
                   target="_blank"
                   rel="noreferrer"
                   title="Twitter"

@@ -4,7 +4,7 @@ import ProjectItem from './ProjectItem';
 const Projects: React.VFC = () => {
   return (
     <Section id="projects" intro="take a look at my" title="Projects">
-      <article className="rounded-3xl bg-white p-12 dark:bg-slate-800">
+      <article className="rounded-3xl dark:bg-slate-800 md:bg-white md:p-12">
         <ProjectItem
           name="Sayang"
           technologies={['React', 'GraphQL', 'gRPC', 'Go']}
