@@ -8,9 +8,9 @@ type Props = {
 };
 const ProjectItem: React.VFC<Props> = ({ name, technologies, features }) => {
   return (
-    <div className="rounded-lg border p-8 shadow-2xl">
+    <div className="overflow-hidden rounded-lg border p-8 shadow-2xl">
       <h3 className="text-xl font-semibold">{name}</h3>
-      <h4 className="break-words font-semibold">
+      <h4 className="text-ellipsis break-words font-semibold">
         Technologies Used:{' '}
         {technologies?.map((value, index) => (
           <Fragment key={index}>
