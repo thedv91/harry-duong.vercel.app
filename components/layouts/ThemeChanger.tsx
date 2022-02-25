@@ -1,8 +1,11 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
-const Theme: React.FC = () => {
+const ThemeChanger: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
   const toggleTheme = () => {
     if (theme === 'dark') {
       setTheme('light');
@@ -10,6 +13,12 @@ const Theme: React.FC = () => {
       setTheme('dark');
     }
   };
+
+  // When mounted on client, now we can show the UI
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
   return (
     <div className="fixed top-4 right-4 z-10 h-6 w-6">
       <button type="button" aria-label="Toggle theme" className="h-6 w-6 cursor-pointer" onClick={toggleTheme}>
@@ -19,4 +28,4 @@ const Theme: React.FC = () => {
   );
 };
 
-export default Theme;
+export default ThemeChanger;

@@ -1,6 +1,6 @@
 import Footer from './Footer';
 import Sidebar from './Sidebar';
-import Theme from './Theme';
+import ThemeChanger from './ThemeChanger';
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -11,7 +11,7 @@ const Layout: React.FC = ({ children }) => {
       </a>
       <main id="main" className="md:ml-28">
         <div className="flex flex-1 flex-col bg-slate-50 px-8 dark:bg-transparent">
-          <Theme />
+          <ThemeChanger />
           {children}
         </div>
         <Footer />

@@ -6,7 +6,7 @@ const Info: React.VFC = () => {
     <section className="relative lg:h-100vh" id="me">
       <div className="grid h-full grid-cols-1 gap-10 transition-all lg:grid-cols-2 lg:gap-4">
         <div className="flex h-full flex-col items-center justify-center">
-          <div className="mt-16 h-250 w-250 cursor-pointer overflow-hidden rounded-full shadow-xl ring-primary ring-offset-4 ring-offset-purple-400 transition-all hover:shadow-2xl hover:ring-4 focus:ring-4 md:h-350 md:w-350 lg:mt-0">
+          <div className="mt-16 h-250 w-250 cursor-pointer overflow-hidden rounded-full shadow-xl ring-primary ring-offset-4 ring-offset-purple-400 transition-all hover:shadow-2xl hover:ring-4 focus:ring-4 dark:ring-blue-700 dark:ring-offset-blue-400 md:h-350 md:w-350 lg:mt-0">
             <Image
               priority
               sizes="50vw"

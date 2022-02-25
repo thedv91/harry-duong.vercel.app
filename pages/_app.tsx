@@ -4,7 +4,7 @@ import { ThemeProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
+    <ThemeProvider defaultTheme="system" attribute="class" disableTransitionOnChange>
       <Component {...pageProps} />
     </ThemeProvider>
   );
