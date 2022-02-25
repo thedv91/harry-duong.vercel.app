@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Calendar, Mail } from 'react-feather';
 import Section from '../Section';
 
@@ -8,6 +9,27 @@ const Input: React.VFC<InputProps> = (props) => {
 };
 
 const Contact: React.VFC = () => {
+  const [data, setData] = useState<{ name?: string; email?: string; subject?: string; message?: string }>({});
+  const [loading, setLoading] = useState(false);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const sendMail = async () => {
+    if (loading) return;
+    setLoading(true);
+    try {
+      await fetch('/api/send-mail', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      setData({});
+    } catch (err) {
+      //
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <Section id="contact" intro="Say hello" title="Contact">
       <article className="rounded-3xl dark:bg-slate-800 md:bg-white md:p-12">
@@ -39,20 +61,35 @@ const Contact: React.VFC = () => {
             onSubmit={(e) => {
               e.preventDefault();
               e.stopPropagation();
+              sendMail();
             }}
           >
             <div className="grid gap-8">
               <div className="grid gap-8 lg:grid-cols-2">
-                <Input required tabIndex={1} placeholder="Your Name*" />
-                <Input type="email" required tabIndex={2} placeholder="Your Email*" />
+                <Input onChange={onChange} value={data.name ?? ''} name="name" required placeholder="Your Name*" />
+                <Input
+                  onChange={onChange}
+                  value={data.email ?? ''}
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Your Email*"
+                />
               </div>
-              <Input required tabIndex={3} placeholder="Subject*" />
-              <textarea required tabIndex={4} placeholder="Your Message*" className="w-full border px-4 py-4" />
+              <Input onChange={onChange} value={data.subject ?? ''} name="subject" required placeholder="Subject*" />
+              <textarea
+                onChange={onChange}
+                value={data.message ?? ''}
+                name="message"
+                required
+                placeholder="Your Message*"
+                className="w-full border px-4 py-4"
+              />
             </div>
 
             <button
-              tabIndex={5}
               type="submit"
+              disabled={loading}
               className="dark:highlight-white/20 mx-auto mt-10 flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 font-semibold text-white transition-all duration-100 ease-in-out hover:bg-violet-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 sm:w-auto"
             >
               SEND
