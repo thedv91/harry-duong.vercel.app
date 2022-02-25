@@ -28,18 +28,28 @@ import { Typescript } from '@/components/skills/typescript';
 import { VSCode } from '@/components/skills/vscode';
 import { Webpack } from '@/components/skills/webpack';
 import { Yarn } from '@/components/skills/yarn';
+import { SystemDesign } from '@/components/skills/system-design';
+import { LoadBalancer } from '@/components/skills/load-balancer';
+import { Rust } from '@/components/skills/rust';
+import { GoLang } from '@/components/skills/golang';
 
 const SkillSet: React.VFC = () => {
   return (
     <Section id="skill" intro="check out my" title="skills">
-      <article className="rounded-3xl dark:bg-slate-800 md:bg-white md:p-12">
+      <article className="rounded-3xl md:bg-white md:p-12 dark:md:bg-slate-800">
         <h2 className="pb-4">Development</h2>
         <div className="grid grid-cols-96px gap-4">
           <Skill name="Typescript">
             <Typescript />
           </Skill>
+          <Skill name="Go">
+            <GoLang />
+          </Skill>
           <Skill name="Solidity">
             <Solidity />
+          </Skill>
+          <Skill name="Rust">
+            <Rust />
           </Skill>
           <Skill name="GraphQL">
             <Graphql />
@@ -133,17 +143,11 @@ const SkillSet: React.VFC = () => {
           <Skill name="Microservices">
             <Aws />
           </Skill>
-          <Skill name="Monolithic">
-            <Firebase />
-          </Skill>
-          <Skill name="SystemDesign">
-            <Docker />
-          </Skill>
-          <Skill name="gRPC">
-            <Docker />
+          <Skill name="System Design">
+            <SystemDesign />
           </Skill>
           <Skill name="HA">
-            <Docker />
+            <LoadBalancer />
           </Skill>
         </div>
       </article>

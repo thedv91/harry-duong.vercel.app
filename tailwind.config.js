@@ -11,7 +11,7 @@ module.exports = {
         sans: ['Poppins', 'sans-serif', ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
-        '96px': 'repeat(auto-fill, 96px)',
+        '96px': 'repeat(auto-fill, minmax(100px, auto))',
       },
       colors: {
         primary: colors.violet['700'],
@@ -33,6 +33,9 @@ module.exports = {
         '10vw': '10vw',
         '100vw': '100vw',
         '100vh': '100vh',
+      },
+      minWidth: {
+        24: '6rem',
       },
     },
   },

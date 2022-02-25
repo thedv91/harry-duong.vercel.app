@@ -3,7 +3,7 @@ import Section from '../Section';
 const About: React.VFC = () => {
   return (
     <Section id="info" intro="some info" title="About me">
-      <article className="rounded-3xl dark:bg-slate-800 md:bg-white md:p-12">
+      <article className="rounded-3xl md:bg-white md:p-12 dark:md:bg-slate-800">
         <p className="font-semibold">
           {`I'm a Full-stack developer with a background in computer systems and network infrastructure. My 8 years
     of IT experience has given me a strong foundation for web development and building complex solutions.

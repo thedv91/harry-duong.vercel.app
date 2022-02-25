@@ -32,7 +32,7 @@ const Contact: React.VFC = () => {
   };
   return (
     <Section id="contact" intro="Say hello" title="Contact">
-      <article className="rounded-3xl dark:bg-slate-800 md:bg-white md:p-12">
+      <article className="rounded-3xl md:bg-white md:p-12 dark:md:bg-slate-800">
         <h3 className="mb-4 text-xl font-semibold">Get in Touch</h3>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="flex flex-col items-center rounded-2xl border p-8 shadow-md">

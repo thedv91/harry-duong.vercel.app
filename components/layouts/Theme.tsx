@@ -11,8 +11,8 @@ const Theme: React.FC = () => {
     }
   };
   return (
-    <div className="fixed top-6 right-6 z-20">
-      <button type="button" aria-label="Toggle theme" className="h-10 w-10" onClick={toggleTheme}>
+    <div className="fixed top-4 right-4 z-10 h-6 w-6">
+      <button type="button" aria-label="Toggle theme" className="h-6 w-6 cursor-pointer" onClick={toggleTheme}>
         {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
       </button>
     </div>

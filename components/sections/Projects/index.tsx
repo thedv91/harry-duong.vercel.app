@@ -4,14 +4,23 @@ import ProjectItem from './ProjectItem';
 const Projects: React.VFC = () => {
   return (
     <Section id="projects" intro="take a look at my" title="Projects">
-      <article className="rounded-3xl dark:bg-slate-800 md:bg-white md:p-12">
+      <article className="grid grid-cols-1 gap-8 rounded-3xl md:bg-white md:p-4 dark:md:bg-slate-800 lg:p-12">
         <ProjectItem
-          name="Sayang"
-          technologies={['React', 'GraphQL', 'gRPC', 'Go']}
+          name="FazzDoc - Telehealth Application"
+          technologies={['React', 'ReactNative', 'GraphQL', 'NestJS', 'TypeScript', 'PostgreSQL']}
           features={[
-            'Completely built with hooks and functional components',
-            'Emulates time passage, and stock prices update randomly as each "day" passes',
-            'Real-time updates on stock and portfolio performance, visualized with interactive charts',
+            'Search and return doctors, medical facility and specialties matching the keywords',
+            'User books an appointment with a doctor',
+            'User can cancel a booking as long as it is not Completed or Cancelled',
+          ]}
+        />
+        <ProjectItem
+          name="MBAges - Insurance company website"
+          technologies={['GraphQL', 'NextJS', 'NestJS', 'SEO', 'TypeScript']}
+          features={[
+            'Design a new website interface according to modern trends, support SEO-Marketing',
+            'Integrate electronic payment gateway to allow users to pay online',
+            'Develop tools to analyze costs and insurance package routes according to logic from customers',
           ]}
         />
       </article>
