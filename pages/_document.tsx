@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-class MyDocument extends Document {
+class RootDocument extends Document {
   render() {
     return (
       <Html lang="en">
@@ -29,7 +29,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
           <meta name="theme-color" content="#6d28d9"></meta>
         </Head>
-        <body>
+        <body className="bg-custom-background">
           <Main />
           <NextScript />
         </body>
@@ -38,4 +38,4 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+export default RootDocument;

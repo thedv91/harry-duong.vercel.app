@@ -51,7 +51,7 @@ const Sidebar = () => {
       </button>
       <div
         role="button"
-        aria-hidden="true"
+        aria-hidden={true}
         aria-label="Overlay"
         onClick={() => setOpen(false)}
         className={cls('fixed inset-0 z-10 bg-black  transition-all', {
@@ -74,13 +74,12 @@ const Sidebar = () => {
         </Link>
         <nav>
           <ul className="text-center">
-            {items.map(({ id, icon }) => (
+            {items.map(({ id, label, icon }) => (
               <li key={id}>
                 <a
+                  aria-label={label}
                   className="inline-block px-4 py-2"
                   href={`#${id}`}
-                  role="button"
-                  aria-hidden={true}
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -88,6 +87,7 @@ const Sidebar = () => {
                   }}
                 >
                   {icon}
+                  <span className="sr-only">{label}</span>
                 </a>
               </li>
             ))}

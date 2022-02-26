@@ -15,6 +15,9 @@ module.exports = {
       },
       colors: {
         primary: colors.violet['700'],
+        custom: {
+          background: 'var(--background)',
+        },
       },
       fontSize: {
         xl: '1.375rem', // 22px
