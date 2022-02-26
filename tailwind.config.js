@@ -15,9 +15,6 @@ module.exports = {
       },
       colors: {
         primary: colors.violet['700'],
-        custom: {
-          background: 'var(--background)',
-        },
       },
       fontSize: {
         xl: '1.375rem', // 22px
@@ -31,9 +28,6 @@ module.exports = {
       spacing: {
         250: '250px',
         350: '350px',
-        '5vw': '5vw', // pull featured sections and navbar in the margin
-        '8vw': '8vw', // positions hero img inside the margin
-        '10vw': '10vw',
         '100vw': '100vw',
         '100vh': '100vh',
       },

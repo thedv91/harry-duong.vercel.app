@@ -29,7 +29,7 @@ class RootDocument extends Document {
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
           <meta name="theme-color" content="#6d28d9"></meta>
         </Head>
-        <body className="bg-custom-background">
+        <body className="bg-white transition-all dark:bg-slate-900">
           <Main />
           <NextScript />
         </body>
