@@ -1,3 +1,4 @@
+import { sendEvent } from '@/lib/gtag';
 import Image from 'next/image';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 
@@ -33,6 +34,13 @@ const Info: React.VFC = () => {
               className="dark:highlight-white/20 mr-10 flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 font-semibold text-white transition-all duration-100 ease-in-out hover:bg-violet-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 sm:w-auto"
               href="/files/harry-duong-resume.pdf"
               title="Download my resume"
+              aria-label="Download my resume"
+              onClick={() => {
+                sendEvent('view_item', {
+                  category: 'resume',
+                  action: 'download',
+                });
+              }}
             >
               Resume
             </a>

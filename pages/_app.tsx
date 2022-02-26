@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import { LazyMotion } from 'framer-motion';
 import React, { useEffect } from 'react';
-import type { AppProps } from 'next/app';
+import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
 import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag';
@@ -15,6 +15,17 @@ if (process.env.NODE_ENV !== 'production') {
       import('@axe-core/react').then((axe) => {
         axe.default(React, ReactDOM, 1000, {});
       });
+    });
+  }
+}
+
+export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
+  if (window?.gtag) {
+    window.gtag('event', name, {
+      event_category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+      value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+      event_label: id, // id unique to current page load
+      non_interaction: true, // avoids affecting bounce rate.
     });
   }
 }
