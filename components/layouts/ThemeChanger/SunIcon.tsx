@@ -1,15 +1,16 @@
 import { m } from 'framer-motion';
+import type { TapHandlers, Variants } from 'framer-motion';
 import { transition } from './constants';
 
-export const SunIcon = () => {
-  const whileTap = { scale: 0.95, rotate: 15 };
+const SunIcon = () => {
+  const whileTap: TapHandlers['whileTap'] = { scale: 0.95, rotate: 15 };
 
-  const raysVariants = {
+  const raysVariants: Variants = {
     initial: { rotate: 45 },
     animate: { rotate: 0, transition },
   };
 
-  const coreVariants = {
+  const coreVariants: Variants = {
     initial: { scale: 1.5 },
     animate: { scale: 1, transition },
   };
@@ -45,3 +46,4 @@ export const SunIcon = () => {
     </m.svg>
   );
 };
+export default SunIcon;

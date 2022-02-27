@@ -1,10 +1,12 @@
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { MoonIcon } from './MoonIcon';
-import { SunIcon } from './SunIcon';
+import dynamic from 'next/dynamic';
+import useMounted from '@/lib/hooks/useMounted';
+
+const MoonIcon = dynamic(() => import('./MoonIcon'), { ssr: false });
+const SunIcon = dynamic(() => import('./SunIcon'), { ssr: false });
 
 const ThemeChanger: React.FC = () => {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -14,9 +16,6 @@ const ThemeChanger: React.FC = () => {
       setTheme('dark');
     }
   };
-
-  // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
 

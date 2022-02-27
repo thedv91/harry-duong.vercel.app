@@ -1,8 +1,9 @@
 import { m } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { transition } from './constants';
 
-export const MoonIcon = () => {
-  const variants = {
+const MoonIcon = () => {
+  const variants: Variants = {
     initial: { scale: 0.6, rotate: 90 },
     animate: { scale: 1, rotate: 0, transition },
     whileTap: { scale: 0.95, rotate: 15 },
@@ -21,3 +22,4 @@ export const MoonIcon = () => {
     </m.svg>
   );
 };
+export default MoonIcon;
