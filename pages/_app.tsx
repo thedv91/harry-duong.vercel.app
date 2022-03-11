@@ -3,8 +3,7 @@ import { LazyMotion } from 'framer-motion';
 import React, { useEffect } from 'react';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { ThemeProvider } from 'next-themes';
-import Script from 'next/script';
-import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag';
+import { pageview } from '@/lib/gtag';
 import { useRouter } from 'next/router';
 
 const loadFeatures = () => import('@/lib/features').then((res) => res.default);
@@ -60,21 +59,6 @@ function RootApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider defaultTheme="system" attribute="class" disableTransitionOnChange>
       <>
-        <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-          }}
-        />
         <LazyMotion features={loadFeatures} strict>
           <Component {...pageProps} />
         </LazyMotion>

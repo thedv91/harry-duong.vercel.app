@@ -1,4 +1,7 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { Partytown } from '@builder.io/partytown/react';
+import { GA_MEASUREMENT_ID } from '@/lib/gtag';
 
 class RootDocument extends Document {
   render() {
@@ -28,6 +31,23 @@ class RootDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
           <meta name="theme-color" content="#6d28d9"></meta>
+          <link rel="preconnect" href="https://www.googletagmanager.com" />
+          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          <Partytown forward={['dataLayer.push']} />
+          <script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} type="text/partytown" />
+          <script
+            type="text/partytown"
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
         </Head>
         <body className="bg-white transition-all dark:bg-slate-900">
           <Main />
