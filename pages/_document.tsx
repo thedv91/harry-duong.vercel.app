@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import type { DocumentContext } from 'next/document';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-// import { Partytown } from '@builder.io/partytown/react';
-// import { GA_MEASUREMENT_ID } from '@/lib/gtag';
+import { Partytown } from '@builder.io/partytown/react';
+import { GA_MEASUREMENT_ID } from '@/lib/gtag';
 // @ts-ignore
 import bundleCss from '!raw-loader!../styles/output.css';
 
@@ -60,12 +60,14 @@ class RootDocument extends Document {
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
           <meta name="theme-color" content="#6d28d9"></meta>
           <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-          {/* <Partytown forward={['dataLayer.push']} />
-          <script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} type="text/partytown" />
-          <script
-            type="text/partytown"
-            dangerouslySetInnerHTML={{
-              __html: `
+          {!this.props.inAmpMode && (
+            <>
+              <Partytown forward={['dataLayer.push']} />
+              <script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} type="text/partytown" />
+              <script
+                type="text/partytown"
+                dangerouslySetInnerHTML={{
+                  __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -73,8 +75,10 @@ class RootDocument extends Document {
               page_path: window.location.pathname,
             });
           `,
-            }}
-          /> */}
+                }}
+              />
+            </>
+          )}
         </Head>
         <body className="bg-white transition-all dark:bg-slate-900">
           <Main />
