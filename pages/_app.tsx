@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+// import '../styles/globals.css';
 import { LazyMotion } from 'framer-motion';
 import React, { useEffect } from 'react';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
