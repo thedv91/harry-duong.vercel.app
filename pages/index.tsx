@@ -5,12 +5,10 @@ import Info from '@/components/sections/Info';
 import Projects from '@/components/sections/Projects';
 import Skills from '@/components/sections/Skills';
 import { BASE_URL } from '@/lib/env';
-import type { NextPage, PageConfig } from 'next';
-import { useAmp } from 'next/amp';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 
 const Home: NextPage = () => {
-  const isAmp = useAmp();
   return (
     <Layout>
       <Head>
@@ -23,7 +21,6 @@ const Home: NextPage = () => {
         <meta name="twitter:card" content="summary"></meta>
         <meta name="twitter:site" content="@nopbongdem" />
         <meta name="twitter:creator" content="@nopbongdem" />
-        {isAmp && <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>}
       </Head>
       <div className="container mx-auto md:px-10">
         <Info />
@@ -37,7 +34,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-export const config: PageConfig = {
-  amp: 'hybrid',
-};

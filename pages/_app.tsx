@@ -1,12 +1,10 @@
-// import '../styles/globals.css';
-import { LazyMotion } from 'framer-motion';
+import '../styles/globals.css';
 import React, { useEffect } from 'react';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { ThemeProvider } from 'next-themes';
-import { pageview } from '@/lib/gtag';
+import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag';
 import { useRouter } from 'next/router';
-
-const loadFeatures = () => import('@/lib/features').then((res) => res.default);
+import Script from 'next/script';
 
 if (process.env.NODE_ENV !== 'production') {
   if (typeof window !== 'undefined') {
@@ -57,13 +55,26 @@ function RootApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <ThemeProvider defaultTheme="system" attribute="class" disableTransitionOnChange>
-      <>
-        <LazyMotion features={loadFeatures} strict>
-          <Component {...pageProps} />
-        </LazyMotion>
-      </>
-    </ThemeProvider>
+    <>
+      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+      <ThemeProvider defaultTheme="system" attribute="class" disableTransitionOnChange>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
 

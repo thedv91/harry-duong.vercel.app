@@ -1,4 +1,3 @@
-import { useAmp } from 'next/amp';
 import { useState } from 'react';
 import { Calendar, Mail } from 'react-feather';
 import Section from '../Section';
@@ -10,7 +9,6 @@ const Input: React.VFC<InputProps> = (props) => {
 };
 
 const Contact: React.VFC = () => {
-  const isAmp = useAmp();
   const [data, setData] = useState<{ name?: string; email?: string; subject?: string; message?: string }>({});
   const [loading, setLoading] = useState(false);
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,68 +56,46 @@ const Contact: React.VFC = () => {
         </div>
         <div className="mt-8">
           <h3 className="mb-4 text-xl font-semibold">Contact Form</h3>
-          {isAmp ? (
-            <>
-              <form method="post" action-xhr="/api/send-mail">
-                <div className="grid gap-8">
-                  <div className="grid gap-8 lg:grid-cols-2">
-                    <Input name="name" required placeholder="Your Name*" />
-                    <Input name="email" type="email" required placeholder="Your Email*" />
-                  </div>
-                  <Input name="subject" required placeholder="Subject*" />
-                  <textarea name="message" required placeholder="Your Message*" className="w-full border px-4 py-4" />
-                </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="dark:highlight-white/20 mx-auto mt-10 flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 font-semibold text-white transition-all duration-100 ease-in-out hover:bg-violet-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 sm:w-auto"
-                >
-                  SEND
-                </button>
-              </form>
-            </>
-          ) : (
-            <form
-              id="contactForm"
-              onSubmit={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                sendMail();
-              }}
-            >
-              <div className="grid gap-8">
-                <div className="grid gap-8 lg:grid-cols-2">
-                  <Input onChange={onChange} value={data.name ?? ''} name="name" required placeholder="Your Name*" />
-                  <Input
-                    onChange={onChange}
-                    value={data.email ?? ''}
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Your Email*"
-                  />
-                </div>
-                <Input onChange={onChange} value={data.subject ?? ''} name="subject" required placeholder="Subject*" />
-                <textarea
+          <form
+            id="contactForm"
+            onSubmit={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              sendMail();
+            }}
+          >
+            <div className="grid gap-8">
+              <div className="grid gap-8 lg:grid-cols-2">
+                <Input onChange={onChange} value={data.name ?? ''} name="name" required placeholder="Your Name*" />
+                <Input
                   onChange={onChange}
-                  value={data.message ?? ''}
-                  name="message"
+                  value={data.email ?? ''}
+                  name="email"
+                  type="email"
                   required
-                  placeholder="Your Message*"
-                  className="w-full border px-4 py-4"
+                  placeholder="Your Email*"
                 />
               </div>
+              <Input onChange={onChange} value={data.subject ?? ''} name="subject" required placeholder="Subject*" />
+              <textarea
+                onChange={onChange}
+                value={data.message ?? ''}
+                name="message"
+                required
+                placeholder="Your Message*"
+                className="w-full border px-4 py-4"
+              />
+            </div>
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="dark:highlight-white/20 mx-auto mt-10 flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 font-semibold text-white transition-all duration-100 ease-in-out hover:bg-violet-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 sm:w-auto"
-              >
-                SEND
-              </button>
-            </form>
-          )}
+            <button
+              type="submit"
+              disabled={loading}
+              className="dark:highlight-white/20 mx-auto mt-10 flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 font-semibold text-white transition-all duration-100 ease-in-out hover:bg-violet-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 sm:w-auto"
+            >
+              SEND
+            </button>
+          </form>
         </div>
       </article>
     </Section>

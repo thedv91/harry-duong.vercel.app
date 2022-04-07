@@ -1,38 +1,6 @@
-/* eslint-disable @next/next/no-sync-scripts */
-import type { DocumentContext } from 'next/document';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { Partytown } from '@builder.io/partytown/react';
-import { GA_MEASUREMENT_ID } from '@/lib/gtag';
-// @ts-ignore
-import bundleCss from '!raw-loader!../styles/output.css';
 
 class RootDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const originalRenderPage = ctx.renderPage;
-
-    ctx.renderPage = () =>
-      originalRenderPage({
-        // Useful for wrapping the whole react tree
-        enhanceApp: (App) => App,
-        // Useful for wrapping in a per-page basis
-        enhanceComponent: (Component) => Component,
-      });
-
-    const initialProps = await Document.getInitialProps(ctx);
-    return {
-      ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          <style
-            dangerouslySetInnerHTML={{
-              __html: bundleCss,
-            }}
-          />
-        </>
-      ),
-    };
-  }
   render() {
     return (
       <Html lang="en">
@@ -60,25 +28,6 @@ class RootDocument extends Document {
           <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
           <meta name="theme-color" content="#6d28d9"></meta>
           <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-          {!this.props.inAmpMode && (
-            <>
-              <Partytown forward={['dataLayer.push']} />
-              <script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} type="text/partytown" />
-              <script
-                type="text/partytown"
-                dangerouslySetInnerHTML={{
-                  __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-                }}
-              />
-            </>
-          )}
         </Head>
         <body className="bg-white transition-all dark:bg-slate-900">
           <Main />
