@@ -2,9 +2,9 @@ import '../styles/globals.css';
 import React, { useEffect } from 'react';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { ThemeProvider } from 'next-themes';
-import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag';
 import { useRouter } from 'next/router';
-import Script from 'next/script';
+// import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag';
+// import Script from 'next/script';
 
 if (process.env.NODE_ENV !== 'production') {
   if (typeof window !== 'undefined') {
@@ -45,8 +45,8 @@ function RootApp({ Component, pageProps }: AppProps) {
 
   const router = useRouter();
   useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      pageview(url);
+    const handleRouteChange = () => {
+      // pageview(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
@@ -56,10 +56,10 @@ function RootApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+      {/* <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
       <Script
         id="gtag-init"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -70,7 +70,7 @@ function RootApp({ Component, pageProps }: AppProps) {
             });
           `,
         }}
-      />
+      /> */}
       <ThemeProvider defaultTheme="system" attribute="class" disableTransitionOnChange>
         <Component {...pageProps} />
       </ThemeProvider>

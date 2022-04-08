@@ -1,4 +1,4 @@
-import { sendEvent } from '@/lib/gtag';
+// import { sendEvent } from '@/lib/gtag';
 import Image from 'next/image';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 
@@ -36,10 +36,10 @@ const Info: React.VFC = () => {
               title="Download my resume"
               aria-label="Download my resume"
               onClick={() => {
-                sendEvent('view_item', {
-                  category: 'resume',
-                  action: 'download',
-                });
+                // sendEvent('view_item', {
+                //   category: 'resume',
+                //   action: 'download',
+                // });
               }}
             >
               Resume
