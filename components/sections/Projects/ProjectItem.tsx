@@ -6,7 +6,7 @@ type Props = {
   technologies?: string[];
   features?: string[];
 };
-const ProjectItem: React.VFC<Props> = ({ name, technologies, features }) => {
+const ProjectItem: React.FC<Props> = ({ name, technologies, features }) => {
   return (
     <div className="overflow-hidden rounded-lg border p-8 shadow-2xl">
       <h3 className="text-xl font-semibold">{name}</h3>

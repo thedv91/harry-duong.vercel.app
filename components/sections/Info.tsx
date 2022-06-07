@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 
-const Info: React.VFC = () => {
+const Info: React.FC = () => {
   return (
     <section className="relative lg:h-100vh" id="me">
       <div className="grid h-full grid-cols-1 gap-10 transition-all lg:grid-cols-2 lg:gap-4">

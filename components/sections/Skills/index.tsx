@@ -1,5 +1,4 @@
 import Section from '@/components/Section';
-import Skill from './SkillItem';
 import { Ansible } from '@/components/skills/ansible';
 import { Apollo } from '@/components/skills/apollo';
 import { Aws } from '@/components/skills/aws';
@@ -9,12 +8,14 @@ import { ESLint } from '@/components/skills/eslint';
 import { EtherJS } from '@/components/skills/etherjs';
 import { Firebase } from '@/components/skills/firebase';
 import { Git } from '@/components/skills/git';
+import { GoLang } from '@/components/skills/golang';
 import { Graphql } from '@/components/skills/graphql';
 import { Hardhat } from '@/components/skills/hardhat';
 import { Html5 } from '@/components/skills/html5';
 import { Jest } from '@/components/skills/jest';
 import { Kubernetes } from '@/components/skills/kubernetes';
 import { Lighthouse } from '@/components/skills/lighthouse';
+import { LoadBalancer } from '@/components/skills/load-balancer';
 import { NestJS } from '@/components/skills/nestjs';
 import { NextJS } from '@/components/skills/nextjs';
 import { Postgres } from '@/components/skills/postgres';
@@ -23,17 +24,15 @@ import { ReactIcon } from '@/components/skills/react';
 import { Redux } from '@/components/skills/redux';
 import { Solidity } from '@/components/skills/solidity';
 import { Storybook } from '@/components/skills/storybook';
+import { SystemDesign } from '@/components/skills/system-design';
 import { Tailwind } from '@/components/skills/tailwind';
 import { Typescript } from '@/components/skills/typescript';
 import { VSCode } from '@/components/skills/vscode';
 import { Webpack } from '@/components/skills/webpack';
 import { Yarn } from '@/components/skills/yarn';
-import { SystemDesign } from '@/components/skills/system-design';
-import { LoadBalancer } from '@/components/skills/load-balancer';
-import { Rust } from '@/components/skills/rust';
-import { GoLang } from '@/components/skills/golang';
+import Skill from './SkillItem';
 
-const SkillSet: React.VFC = () => {
+const SkillSet: React.FC = () => {
   return (
     <Section id="skill" intro="check out my" title="skills">
       <article className="rounded-3xl md:bg-white md:p-12 dark:md:bg-slate-800">
@@ -47,9 +46,6 @@ const SkillSet: React.VFC = () => {
           </Skill>
           <Skill name="Solidity">
             <Solidity />
-          </Skill>
-          <Skill name="Rust">
-            <Rust />
           </Skill>
           <Skill name="GraphQL">
             <Graphql />

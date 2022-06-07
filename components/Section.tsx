@@ -1,6 +1,7 @@
 type Props = {
   title?: React.ReactNode;
   intro?: React.ReactNode;
+  children: React.ReactNode;
   id?: string;
 };
 const Section: React.FC<Props> = ({ id, title, intro, children }) => {

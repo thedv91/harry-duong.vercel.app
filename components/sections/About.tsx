@@ -1,6 +1,6 @@
 import Section from '../Section';
 
-const About: React.VFC = () => {
+const About: React.FC = () => {
   return (
     <Section id="info" intro="some info" title="About me">
       <article className="rounded-3xl md:bg-white md:p-12 dark:md:bg-slate-800">

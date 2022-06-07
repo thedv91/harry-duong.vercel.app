@@ -4,11 +4,11 @@ import Section from '../Section';
 
 type InputProps = JSX.IntrinsicElements['input'];
 
-const Input: React.VFC<InputProps> = (props) => {
+const Input: React.FC<InputProps> = (props) => {
   return <input {...props} className="w-full border px-4 py-4" />;
 };
 
-const Contact: React.VFC = () => {
+const Contact: React.FC = () => {
   const [data, setData] = useState<{ name?: string; email?: string; subject?: string; message?: string }>({});
   const [loading, setLoading] = useState(false);
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

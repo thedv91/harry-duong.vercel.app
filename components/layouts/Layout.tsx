@@ -2,7 +2,7 @@ import Footer from './Footer';
 import Sidebar from './Sidebar';
 import ThemeChanger from './ThemeChanger';
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <>
       <Sidebar />

@@ -1,5 +1,6 @@
 type Props = {
   name: string;
+  children: React.ReactNode;
 };
 const SkillItem: React.FC<Props> = ({ name, children }) => {
   return (

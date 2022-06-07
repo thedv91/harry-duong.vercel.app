@@ -1,7 +1,7 @@
 import Section from '@/components/Section';
 import ProjectItem from './ProjectItem';
 
-const Projects: React.VFC = () => {
+const Projects: React.FC = () => {
   return (
     <Section id="projects" intro="take a look at my" title="Projects">
       <article className="grid grid-cols-1 gap-8 rounded-3xl md:bg-white md:p-4 dark:md:bg-slate-800 lg:p-12">
