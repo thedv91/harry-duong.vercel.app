@@ -1,6 +1,6 @@
+import useMounted from '@/lib/hooks/useMounted';
 import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
-import useMounted from '@/lib/hooks/useMounted';
 
 const MoonIcon = dynamic(() => import('./MoonIcon'), { ssr: false });
 const SunIcon = dynamic(() => import('./SunIcon'), { ssr: false });

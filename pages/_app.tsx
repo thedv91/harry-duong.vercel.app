@@ -1,8 +1,8 @@
-import '../styles/globals.css';
-import React, { useEffect } from 'react';
-import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { ThemeProvider } from 'next-themes';
+import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
+import '../styles/globals.css';
 // import { GA_MEASUREMENT_ID, pageview } from '@/lib/gtag';
 // import Script from 'next/script';
 
