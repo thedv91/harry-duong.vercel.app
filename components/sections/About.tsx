@@ -9,7 +9,7 @@ const About: React.FC = () => {
     of IT experience has given me a strong foundation for web development and building complex solutions.
     Recently, I graduated from the`}{' '}
           <a
-            href="https://www.freecodecamp.org/"
+            href="https://www.freecodecamp.org/certification/thedv91/front-end-development-libraries"
             title="Free Code Camp"
             target="_blank"
             rel="noreferrer"
