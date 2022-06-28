@@ -19,15 +19,22 @@ import { LoadBalancer } from '@/components/skills/load-balancer';
 import { NestJS } from '@/components/skills/nestjs';
 import { NextJS } from '@/components/skills/nextjs';
 import { Postgres } from '@/components/skills/postgres';
+import { Prettier } from '@/components/skills/prettier';
 import { Rancher } from '@/components/skills/rancher';
 import { ReactIcon } from '@/components/skills/react';
 import { Redux } from '@/components/skills/redux';
+import { Rollup } from '@/components/skills/rollup';
 import { Solidity } from '@/components/skills/solidity';
+import { SolidJS } from '@/components/skills/solidjs';
 import { Storybook } from '@/components/skills/storybook';
 import { SystemDesign } from '@/components/skills/system-design';
 import { Tailwind } from '@/components/skills/tailwind';
+import { Turborepo } from '@/components/skills/turborepo';
 import { Typescript } from '@/components/skills/typescript';
+import { Vite } from '@/components/skills/vite';
 import { VSCode } from '@/components/skills/vscode';
+import { Vue } from '@/components/skills/vue';
+import { WebVitals } from '@/components/skills/web-vitals';
 import { Webpack } from '@/components/skills/webpack';
 import { Yarn } from '@/components/skills/yarn';
 import Skill from './SkillItem';
@@ -41,17 +48,20 @@ const SkillSet: React.FC = () => {
           <Skill name="Typescript">
             <Typescript />
           </Skill>
-          <Skill name="Go">
-            <GoLang />
+          <Skill name="React/RN">
+            <ReactIcon />
           </Skill>
-          <Skill name="Solidity">
-            <Solidity />
+          <Skill name="Vue">
+            <Vue />
+          </Skill>
+          <Skill name="SolidJS">
+            <SolidJS />
+          </Skill>
+          <Skill name="Tailwind">
+            <Tailwind />
           </Skill>
           <Skill name="GraphQL">
             <Graphql />
-          </Skill>
-          <Skill name="NestJS">
-            <NestJS />
           </Skill>
           <Skill name="NextJS">
             <NextJS />
@@ -62,11 +72,14 @@ const SkillSet: React.FC = () => {
           <Skill name="Apollo">
             <Apollo />
           </Skill>
-          <Skill name="Tailwind">
-            <Tailwind />
+          <Skill name="NestJS">
+            <NestJS />
           </Skill>
-          <Skill name="React/RN">
-            <ReactIcon />
+          <Skill name="Go">
+            <GoLang />
+          </Skill>
+          <Skill name="Solidity">
+            <Solidity />
           </Skill>
           <Skill name="PostgreSQL">
             <Postgres />
@@ -84,8 +97,11 @@ const SkillSet: React.FC = () => {
 
         <h2 className="py-4 font-semibold">Tools and Framework</h2>
         <div className="grid grid-cols-96px gap-4">
-          <Skill name="Git">
-            <Git />
+          <Skill>
+            <Turborepo />
+          </Skill>
+          <Skill name="Vite">
+            <Vite />
           </Skill>
           <Skill name="Jest">
             <Jest />
@@ -99,8 +115,14 @@ const SkillSet: React.FC = () => {
           <Skill name="Webpack">
             <Webpack />
           </Skill>
+          <Skill name="Rollup">
+            <Rollup />
+          </Skill>
           <Skill name="ESLint">
             <ESLint />
+          </Skill>
+          <Skill name="Prettier">
+            <Prettier />
           </Skill>
           <Skill name="Yarn">
             <Yarn />
@@ -108,8 +130,14 @@ const SkillSet: React.FC = () => {
           <Skill name="Hardhat">
             <Hardhat />
           </Skill>
+          <Skill name="Web Vitals">
+            <WebVitals />
+          </Skill>
           <Skill name="Lighthouse">
             <Lighthouse />
+          </Skill>
+          <Skill name="Git">
+            <Git />
           </Skill>
         </div>
 

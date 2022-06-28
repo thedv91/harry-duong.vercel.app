@@ -11,7 +11,7 @@ const Info: React.FC = () => {
             <Image
               priority
               sizes="50vw"
-              src="/images/avatar.jpg"
+              src="/images/avatar.jpeg"
               width={3024}
               height={3024}
               layout="responsive"

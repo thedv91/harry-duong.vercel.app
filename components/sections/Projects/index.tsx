@@ -23,6 +23,15 @@ const Projects: React.FC = () => {
             'Develop tools to analyze costs and insurance package routes according to logic from customers',
           ]}
         />
+        <ProjectItem
+          name="Headless storefront - E-commerce website"
+          technologies={['GraphQL', 'NextJS', 'Go', 'SEO', 'TypeScript', 'Shopify']}
+          features={[
+            'Develop monorepo components for e-commerce website with React',
+            'Drag and drop components to build a storefront',
+            'Optimize the performance of the website',
+          ]}
+        />
       </article>
     </Section>
   );
