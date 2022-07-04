@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .content-visibility-auto {
+    content-visibility: auto;
+  }
+  .content-visibility-hidden {
+    content-visibility: hidden;
+  }
+  .content-visibility-visible {
+    content-visibility: visible;
+  }
+}

@@ -1,12 +1,26 @@
+import clsx from 'clsx';
+import { forwardRef } from 'react';
+
 type Props = {
   title?: React.ReactNode;
   intro?: React.ReactNode;
   children: React.ReactNode;
   id?: string;
+  inView?: boolean;
 };
-const Section: React.FC<Props> = ({ id, title, intro, children }) => {
+const Section = forwardRef<HTMLSelectElement, Props>(function InnerSection(
+  { id, title, intro, children, inView },
+  ref,
+) {
   return (
-    <section className="py-20" id={id}>
+    <section
+      id={id}
+      ref={ref}
+      className={clsx('py-20 transition-opacity', {
+        'content-visibility-hidden opacity-0': !inView,
+        'content-visibility-visible opacity-100': inView,
+      })}
+    >
       <div className="flex items-center">
         <span className="mr-8 h-[1px] w-14 bg-slate-700 dark:bg-gray-300"></span>
         <span className="text-xs uppercase text-gray-500 dark:text-gray-200">{intro}</span>
@@ -15,6 +29,6 @@ const Section: React.FC<Props> = ({ id, title, intro, children }) => {
       {children}
     </section>
   );
-};
+});
 
 export default Section;

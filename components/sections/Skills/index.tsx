@@ -37,144 +37,152 @@ import { Vue } from '@/components/skills/vue';
 import { WebVitals } from '@/components/skills/web-vitals';
 import { Webpack } from '@/components/skills/webpack';
 import { Yarn } from '@/components/skills/yarn';
+import { useInView } from 'react-intersection-observer';
 import Skill from './SkillItem';
 
 const SkillSet: React.FC = () => {
+  const { ref, inView } = useInView({
+    delay: 100,
+    triggerOnce: true,
+    rootMargin: '50px 0px',
+  });
   return (
-    <Section id="skill" intro="check out my" title="skills">
-      <article className="rounded-3xl md:bg-white md:p-12 dark:md:bg-slate-800">
-        <h2 className="pb-4">Development</h2>
-        <div className="grid grid-cols-96px gap-4">
-          <Skill name="Typescript">
-            <Typescript />
-          </Skill>
-          <Skill name="React/RN">
-            <ReactIcon />
-          </Skill>
-          <Skill name="Vue">
-            <Vue />
-          </Skill>
-          <Skill name="SolidJS">
-            <SolidJS />
-          </Skill>
-          <Skill name="Tailwind">
-            <Tailwind />
-          </Skill>
-          <Skill name="GraphQL">
-            <Graphql />
-          </Skill>
-          <Skill name="NextJS">
-            <NextJS />
-          </Skill>
-          <Skill name="Redux">
-            <Redux />
-          </Skill>
-          <Skill name="Apollo">
-            <Apollo />
-          </Skill>
-          <Skill name="NestJS">
-            <NestJS />
-          </Skill>
-          <Skill name="Go">
-            <GoLang />
-          </Skill>
-          <Skill name="Solidity">
-            <Solidity />
-          </Skill>
-          <Skill name="PostgreSQL">
-            <Postgres />
-          </Skill>
-          <Skill name="EtherJS">
-            <EtherJS />
-          </Skill>
-          <Skill name="HTML">
-            <Html5 />
-          </Skill>
-          <Skill name="CSS">
-            <Css3 />
-          </Skill>
-        </div>
+    <Section id="skill" inView={inView} intro="check out my" title="skills" ref={ref}>
+      {inView && (
+        <article className="rounded-3xl md:bg-white md:p-12 dark:md:bg-slate-800">
+          <h2 className="pb-4">Development</h2>
+          <div className="grid grid-cols-96px gap-4">
+            <Skill name="Typescript">
+              <Typescript />
+            </Skill>
+            <Skill name="React/RN">
+              <ReactIcon />
+            </Skill>
+            <Skill name="Vue">
+              <Vue />
+            </Skill>
+            <Skill name="SolidJS">
+              <SolidJS />
+            </Skill>
+            <Skill name="Tailwind">
+              <Tailwind />
+            </Skill>
+            <Skill name="GraphQL">
+              <Graphql />
+            </Skill>
+            <Skill name="NextJS">
+              <NextJS />
+            </Skill>
+            <Skill name="Redux">
+              <Redux />
+            </Skill>
+            <Skill name="Apollo">
+              <Apollo />
+            </Skill>
+            <Skill name="NestJS">
+              <NestJS />
+            </Skill>
+            <Skill name="Go">
+              <GoLang />
+            </Skill>
+            <Skill name="Solidity">
+              <Solidity />
+            </Skill>
+            <Skill name="PostgreSQL">
+              <Postgres />
+            </Skill>
+            <Skill name="EtherJS">
+              <EtherJS />
+            </Skill>
+            <Skill name="HTML">
+              <Html5 />
+            </Skill>
+            <Skill name="CSS">
+              <Css3 />
+            </Skill>
+          </div>
 
-        <h2 className="py-4 font-semibold">Tools and Framework</h2>
-        <div className="grid grid-cols-96px gap-4">
-          <Skill>
-            <Turborepo />
-          </Skill>
-          <Skill name="Vite">
-            <Vite />
-          </Skill>
-          <Skill name="Jest">
-            <Jest />
-          </Skill>
-          <Skill name="Storybook">
-            <Storybook />
-          </Skill>
-          <Skill name="VSCode">
-            <VSCode />
-          </Skill>
-          <Skill name="Webpack">
-            <Webpack />
-          </Skill>
-          <Skill name="Rollup">
-            <Rollup />
-          </Skill>
-          <Skill name="ESLint">
-            <ESLint />
-          </Skill>
-          <Skill name="Prettier">
-            <Prettier />
-          </Skill>
-          <Skill name="Yarn">
-            <Yarn />
-          </Skill>
-          <Skill name="Hardhat">
-            <Hardhat />
-          </Skill>
-          <Skill name="Web Vitals">
-            <WebVitals />
-          </Skill>
-          <Skill name="Lighthouse">
-            <Lighthouse />
-          </Skill>
-          <Skill name="Git">
-            <Git />
-          </Skill>
-        </div>
+          <h2 className="py-4 font-semibold">Tools and Framework</h2>
+          <div className="grid grid-cols-96px gap-4">
+            <Skill>
+              <Turborepo />
+            </Skill>
+            <Skill name="Vite">
+              <Vite />
+            </Skill>
+            <Skill name="Jest">
+              <Jest />
+            </Skill>
+            <Skill name="Storybook">
+              <Storybook />
+            </Skill>
+            <Skill name="VSCode">
+              <VSCode />
+            </Skill>
+            <Skill name="Webpack">
+              <Webpack />
+            </Skill>
+            <Skill name="Rollup">
+              <Rollup />
+            </Skill>
+            <Skill name="ESLint">
+              <ESLint />
+            </Skill>
+            <Skill name="Prettier">
+              <Prettier />
+            </Skill>
+            <Skill name="Yarn">
+              <Yarn />
+            </Skill>
+            <Skill name="Hardhat">
+              <Hardhat />
+            </Skill>
+            <Skill name="Web Vitals">
+              <WebVitals />
+            </Skill>
+            <Skill name="Lighthouse">
+              <Lighthouse />
+            </Skill>
+            <Skill name="Git">
+              <Git />
+            </Skill>
+          </div>
 
-        <h2 className="py-4 font-semibold">DevOps</h2>
-        <div className="grid grid-cols-96px gap-4">
-          <Skill name="AWS">
-            <Aws />
-          </Skill>
-          <Skill name="Firebase">
-            <Firebase />
-          </Skill>
-          <Skill name="Docker">
-            <Docker />
-          </Skill>
-          <Skill name="Kubernetes">
-            <Kubernetes />
-          </Skill>
-          <Skill name="Rancher">
-            <Rancher />
-          </Skill>
-          <Skill name="Ansible">
-            <Ansible />
-          </Skill>
-        </div>
-        <h2 className="py-4 font-semibold">Architecture</h2>
-        <div className="grid grid-cols-96px gap-4">
-          <Skill name="Microservices">
-            <Aws />
-          </Skill>
-          <Skill name="System Design">
-            <SystemDesign />
-          </Skill>
-          <Skill name="HA">
-            <LoadBalancer />
-          </Skill>
-        </div>
-      </article>
+          <h2 className="py-4 font-semibold">DevOps</h2>
+          <div className="grid grid-cols-96px gap-4">
+            <Skill name="AWS">
+              <Aws />
+            </Skill>
+            <Skill name="Firebase">
+              <Firebase />
+            </Skill>
+            <Skill name="Docker">
+              <Docker />
+            </Skill>
+            <Skill name="Kubernetes">
+              <Kubernetes />
+            </Skill>
+            <Skill name="Rancher">
+              <Rancher />
+            </Skill>
+            <Skill name="Ansible">
+              <Ansible />
+            </Skill>
+          </div>
+          <h2 className="py-4 font-semibold">Architecture</h2>
+          <div className="grid grid-cols-96px gap-4">
+            <Skill name="Microservices">
+              <Aws />
+            </Skill>
+            <Skill name="System Design">
+              <SystemDesign />
+            </Skill>
+            <Skill name="HA">
+              <LoadBalancer />
+            </Skill>
+          </div>
+        </article>
+      )}
     </Section>
   );
 };
