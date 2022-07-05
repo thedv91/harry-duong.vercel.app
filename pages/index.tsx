@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         <title>Harry Duong</title>
         <link rel="canonical" href={BASE_URL} />
         <meta name="description" content="Harry Duong's personal website" />
-        <meta name="og:title" content="Harry Duong" />
+        <meta name="og:title" content="Harry Duong's personal website" />
         <meta property="og:url" content="https://harry-duong.vercel.app/" />
         <meta name="og:description" content="Harry Duong's personal website" />
         <meta name="twitter:card" content="summary"></meta>

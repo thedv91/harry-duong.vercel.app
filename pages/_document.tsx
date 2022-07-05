@@ -29,7 +29,7 @@ class RootDocument extends Document {
           <meta name="theme-color" content="#6d28d9"></meta>
           <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         </Head>
-        <body className="bg-white transition-all dark:bg-slate-900">
+        <body className="scroll-smooth bg-white antialiased transition-all dark:bg-slate-900">
           <Main />
           <NextScript />
         </body>
